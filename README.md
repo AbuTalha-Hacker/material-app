@@ -1,2 +1,2 @@
-# material-app
-demo app
+# talha material app
+material app prices and ordering app.

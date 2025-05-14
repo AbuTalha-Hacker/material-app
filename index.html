@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ghufran Building Material Stock</title>
+  <style>
+
+.owner-profile {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.profile-frame {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, gold, orange, gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: glow 3s infinite;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.profile-frame img {
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+  }
+}
+
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #34495e;
+      padding: 30px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 40px;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2980b9;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #bdc3c7;
+      text-align: center;
+    }
+
+    th {
+      background-color: #2980b9;
+      color: white;
+    }
+
+    .update-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .update-form select, .update-form input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .update-form button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .update-form button:hover {
+      background: #219150;
+    }
+
+    .whatsapp {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .whatsapp img {
+      animation: pulse 1.5s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .feedbacks {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .feedback {
+      background: #ecf0f1;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .feedback img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .update-form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .feedbacks {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .developer-badge {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  animation: bounce 2s infinite;
+  z-index: 999;
+}
+
+.developer-badge img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #27ae60;
+}
+
+.developer-badge span {
+  font-size: 13px;
+  line-height: 1.2;
+  color: #2c3e50;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.update-form {
+  display: none; /* default mein chhupa rahega */
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+<!-- Add this CSS after existing styles -->
+<style>
+  /* Neon Enhancements */
+  body {
+    background: linear-gradient(45deg, #0a0a2e, #1a1a1a);
+    overflow-x: hidden;
+  }
+
+  header {
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    animation: headerGlow 3s infinite alternate;
+  }
+
+  @keyframes headerGlow {
+    0% { box-shadow: 0 0 30px #00ffff; }
+    100% { box-shadow: 0 0 30px #ff00ff; }
+  }
+
+  .profile-frame {
+    animation: neonPulse 2s infinite alternate;
+  }
+
+  @keyframes neonPulse {
+    from { filter: drop-shadow(0 0 5px #0ff); }
+    to { filter: drop-shadow(0 0 20px #f0f); }
+  }
+
+  section {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #0ff, #f0f, #0ff);
+    z-index: -1;
+    animation: borderFlow 3s linear infinite;
+  }
+
+  @keyframes borderFlow {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  th {
+    position: relative;
+    overflow: hidden;
+  }
+
+  th::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+      transparent, 
+      rgba(255,255,255,0.2), 
+      transparent);
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% { transform: translate(-50%, -50%) rotate(45deg); }
+    100% { transform: translate(150%, 150%) rotate(45deg); }
+  }
+
+  tr:hover td {
+    background: rgba(255,255,255,0.05);
+    text-shadow: 0 0 10px #0ff;
+  }
+
+  .update-form button {
+    background: linear-gradient(45deg, #0ff, #f0f);
+    box-shadow: 0 0 15px #0ff;
+    transition: all 0.3s;
+  }
+
+  .update-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #f0f;
+  }
+
+  .whatsapp img {
+    filter: drop-shadow(0 0 15px #0f0);
+    transition: all 0.3s;
+  }
+
+  .feedback {
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .feedback:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px #0ff;
+  }
+
+  /* Floating Neon Elements */
+  .neon-particle {
+    position: fixed;
+    background: radial-gradient(#0ff, transparent 70%);
+    pointer-events: none;
+    animation: float 3s infinite;
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+
+  /* Text Effects */
+  h1, h2 {
+    text-shadow: 0 0 10px #0ff;
+    animation: textFlicker 0.1s infinite;
+  }
+
+  @keyframes textFlicker {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.9; }
+  }
+</style>
+
+<!-- Add these particles before closing body tag -->
+<script>
+  // Add floating particles
+  const colors = ['#0ff', '#f0f', '#ff0'];
+  for(let i = 0; i < 20; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'neon-particle';
+    particle.style.cssText = `
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      width: ${Math.random() * 30 + 10}px;
+      height: ${Math.random() * 30 + 10}px;
+      animation-duration: ${Math.random() * 3 + 2}s;
+      background: radial-gradient(${colors[Math.floor(Math.random()*3)]}, transparent);
+    `;
+    document.body.appendChild(particle);
+  }
+</script>
+
+<!-- Add this font link in head -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ghufran Construction Materials</h1>
+    <p>High-quality building materials at your service</p>
+  </header>
+
+  <div class="owner-profile">
+  <div class="profile-frame">
+    <img src="ghufran_2.jpg" alt="Owner - Ghufran" />
+  </div>
+  <p><strong>Ghufran Khan</strong><br>Founder & Owner</p>
+</div>
+
+
+  <section>
+    <h2>Product Prices</h2>
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+      </tr>
+      <tr><td>Bricks</td><td id="price-bricks">200 Rs</td></tr>
+      <tr><td>Cement</td><td id="price-cement">1800 Rs</td></tr>
+      <tr><td>Sand</td><td id="price-sand">25 Rs</td></tr>
+      <tr><td>Gravel</td><td id="price-gravel">30 Rs</td></tr>
+      <tr><td>Iron Rod</td><td id="price-iron">10000 Rs</td></tr>
+    </table>
+
+    <!-- Price Update Form -->
+    <div class="update-form">
+      <select id="productSelect">
+        <option value="bricks">Bricks</option>
+        <option value="cement">Cement</option>
+        <option value="sand">Sand</option>
+        <option value="gravel">Gravel</option>
+        <option value="iron">Iron Rod</option>
+      </select>
+      <input type="text" id="newPrice" placeholder="Enter new price">
+      <button onclick="updatePrice()">Update Price</button>
+    </div>
+  </section>
+
+  <section class="whatsapp">
+    <h2>Order via WhatsApp</h2>
+    <p>Click below to chat with us directly</p>
+    <a href="https://wa.me/923138876125" target="_blank">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+    </a>
+  </section>
+
+  <section>
+    <h2>Customer Feedback</h2>
+    <div class="feedbacks">
+      <div class="feedback">
+        <img src="subhan.jpg" alt="Customer 1">
+        <p><strong>Fazli Subhan</strong></p>
+        <p>“Very good material quality, fast delivery!”</p>
+      </div>
+      <div class="feedback">
+        <img src="amir.jpg" alt="Customer 2">
+        <p><strong>Amir Sir</strong></p>
+        <p>“We built our home with Ghufran materials – highly recommended!”</p>
+      </div>
+      <div class="feedback">
+        <img src="waleed.jpg" alt="Customer 3">
+        <p><strong>Waleed Ostaz</strong></p>
+        <p>“Excellent customer service and honest pricing.”</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ghufran Construction Materials | All rights reserved</p>
+  </footer>
+
+  <script>
+    function updatePrice() {
+      const product = document.getElementById("productSelect").value;
+      const newPrice = document.getElementById("newPrice").value;
+
+      if (!newPrice) {
+        alert("Please enter a new price");
+        return;
+      }
+
+      const priceId = "price-" + product;
+      document.getElementById(priceId).innerText = newPrice + " Rs";
+
+      alert("Price updated successfully!");
+    }
+  </script>
+
+<script>
+  // Secret password
+  const password = prompt("Only for Developer (Abu Talha) and Owner (Ghufran Khan)!:");
+
+  // Agar sahi password ho
+  if (password === "8876125") {
+    document.querySelector(".update-form").style.display = "flex";
+  }
+
+  function updatePrice() {
+    const product = document.getElementById("productSelect").value;
+    const newPrice = document.getElementById("newPrice").value;
+
+    if (!newPrice) {
+      alert("Please enter a new price");
+      return;
+    }
+
+    const priceId = "price-" + product;
+    document.getElementById(priceId).innerText = newPrice + " Rs";
+
+    alert("Price updated successfully!");
+  }
+</script>
+
+  <!-- Developer Badge -->
+<div class="developer-badge">
+  <img src="developer.jpg" alt="Developer Abu Talha" />
+  <span>Developer<br><strong>Abu Talha</strong></span>
+</div>
+
+
+</body>
+</html>
